@@ -142,17 +142,74 @@ void reverse(Node* &head) {
 
 int main() {
     Node* head = NULL;
-    insertAtHead(head, 6);
-    insertAtHead(head, 2);
-    insertAtTail(head, 5);
-    deleteAtHead(head);
-    deleteAtTail(head);
-    insertAtPos(head, 3, 1);
-    deleteAtPos(head, 1);
-    reverse(head);
-    display(head);
-    search(head, 3);
-    search(head, 7);
+    int choice, value, position;
+
+    while (true) {
+        cout << "\nMenu:\n";
+        cout << "1. Insert at Head\n";
+        cout << "2. Insert at Tail\n";
+        cout << "3. Insert at Position\n";
+        cout << "4. Delete at Head\n";
+        cout << "5. Delete at Tail\n";
+        cout << "6. Delete at Position\n";
+        cout << "7. Search for an Element\n";
+        cout << "8. Display the List\n";
+        cout << "9. Reverse the List\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            cout << "Enter value to insert at head: ";
+            cin >> value;
+            insertAtHead(head, value);
+            break;
+        case 2:
+            cout << "Enter value to insert at tail: ";
+            cin >> value;
+            insertAtTail(head, value);
+            break;
+        case 3:
+            cout << "Enter value to insert: ";
+            cin >> value;
+            cout << "Enter position to insert at: ";
+            cin >> position;
+            insertAtPos(head, value, position);
+            break;
+        case 4:
+            deleteAtHead(head);
+            cout << "Deleted the head element.\n";
+            break;
+        case 5:
+            deleteAtTail(head);
+            cout << "Deleted the tail element.\n";
+            break;
+        case 6:
+            cout << "Enter position to delete: ";
+            cin >> position;
+            deleteAtPos(head, position);
+            break;
+        case 7:
+            cout << "Enter value to search: ";
+            cin >> value;
+            search(head, value);
+            break;
+        case 8:
+            cout << "The linked list is: ";
+            display(head);
+            break;
+        case 9:
+            reverse(head);
+            cout << "Reversed the linked list.\n";
+            break;
+        case 0:
+            cout << "Exiting program.\n";
+            return 0;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+        }
+    }
 
     return 0;
 }
