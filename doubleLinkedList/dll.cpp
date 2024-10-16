@@ -107,6 +107,20 @@ public:
         }
         cout << "Not found\n";
     }
+
+    Node* reverse(){
+        Node* prev = NULL;
+        Node* curr = head;
+        Node* next;
+
+        while(curr!=NULL){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
 };
 
 int main() {
@@ -120,7 +134,8 @@ int main() {
         cout << "4. Delete at Tail\n";
         cout << "5. Display\n";
         cout << "6. Search\n";
-        cout << "7. Exit\n";
+        cout << "7. Reverse\n";
+        cout << "8. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -150,6 +165,10 @@ int main() {
             d.search(val);
             break;
         case 7:
+            cout << "reversed: ";
+            d.reverse();
+            break;
+        case 8:
             cout << "Exiting...\n";
             break;
         default:
