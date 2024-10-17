@@ -1,30 +1,33 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 class Node {
 public:
-    int val;
+    T val;
     Node* next;
-    Node(int data) {
+
+    Node(T data) {
         val = data;
-        next = NULL;
+        next = nullptr;
     }
 };
 
+template <typename T>
 class cLL {
 public:
-    Node* head;
+    Node<T>* head;
 
     cLL() {
-        head = NULL;
+        head = nullptr;
     }
 
     void display() {
-        if (head == NULL) {
+        if (head == nullptr) {
             cout << "List is empty.\n";
             return;
         }
-        Node* temp = head;
+        Node<T>* temp = head;
         do {
             cout << temp->val << " ";
             temp = temp->next;
@@ -32,15 +35,15 @@ public:
         cout << endl;
     }
 
-    void insertAtHead(int val) {
-        Node* temp = new Node(val);
-        if (head == NULL) {
+    void insertAtHead(T val) {
+        Node<T>* temp = new Node<T>(val);
+        if (head == nullptr) {
             head = temp;
             temp->next = head;
             return;
         }
 
-        Node* curr = head;
+        Node<T>* curr = head;
         while (curr->next != head) {
             curr = curr->next;
         }
@@ -49,15 +52,15 @@ public:
         head = temp;
     }
 
-    void insertAtTail(int val) {
-        Node* temp = new Node(val);
-        if (head == NULL) {
+    void insertAtTail(T val) {
+        Node<T>* temp = new Node<T>(val);
+        if (head == nullptr) {
             head = temp;
             temp->next = head;
             return;
         }
 
-        Node* curr = head;
+        Node<T>* curr = head;
         while (curr->next != head) {
             curr = curr->next;
         }
@@ -66,7 +69,7 @@ public:
     }
 
     void deleteAtHead() {
-        if (head == NULL) {
+        if (head == nullptr) {
             cout << "List is empty. Cannot delete.\n";
             return;
         }
@@ -74,12 +77,12 @@ public:
         if (head->next == head) {
             // Only one node in the list
             delete head;
-            head = NULL;
+            head = nullptr;
             return;
         }
 
-        Node* temp = head;
-        Node* curr = head;
+        Node<T>* temp = head;
+        Node<T>* curr = head;
         while (curr->next != head) {
             curr = curr->next;
         }
@@ -89,7 +92,7 @@ public:
     }
 
     void deleteAtTail() {
-        if (head == NULL) {
+        if (head == nullptr) {
             cout << "List is empty. Cannot delete.\n";
             return;
         }
@@ -97,27 +100,29 @@ public:
         if (head->next == head) {
             // Only one node in the list
             delete head;
-            head = NULL;
+            head = nullptr;
             return;
         }
 
-        Node* curr = head;
+        Node<T>* curr = head;
         while (curr->next->next != head) {
             curr = curr->next;
         }
-        Node* del = curr->next;
+        Node<T>* del = curr->next;
         curr->next = head;
         delete del;
     }
 
     void reverse() {
-        if (head == NULL || head->next == head) {
+        if (head == nullptr || head->next == head) {
             // Empty list or single node
             return;
         }
 
-        Node *prev = NULL, *current = head, *nextNode = NULL;
-        Node* tail = head;  // Keep track of the tail
+        Node<T>* prev = nullptr;
+        Node<T>* current = head;
+        Node<T>* nextNode = nullptr;
+        Node<T>* tail = head;  // Keep track of the tail
 
         do {
             nextNode = current->next;  // Store the next node
@@ -132,7 +137,7 @@ public:
 };
 
 int main() {
-    cLL c;
+    cLL<int> c;  // Creating a circular linked list for integers
     int choice, val;
 
     do {
