@@ -9,7 +9,7 @@ public:
 
     Node(T data) {
         val = data;
-        next = nullptr;
+        next = NULL;
     }
 };
 
@@ -19,11 +19,11 @@ public:
     Node<T>* head;
 
     cLL() {
-        head = nullptr;
+        head = NULL;
     }
 
     void display() {
-        if (head == nullptr) {
+        if (head == NULL) {
             cout << "List is empty.\n";
             return;
         }
@@ -37,7 +37,7 @@ public:
 
     void insertAtHead(T val) {
         Node<T>* temp = new Node<T>(val);
-        if (head == nullptr) {
+        if (head == NULL) {
             head = temp;
             temp->next = head;
             return;
@@ -54,7 +54,7 @@ public:
 
     void insertAtTail(T val) {
         Node<T>* temp = new Node<T>(val);
-        if (head == nullptr) {
+        if (head == NULL) {
             head = temp;
             temp->next = head;
             return;
@@ -69,7 +69,7 @@ public:
     }
 
     void deleteAtHead() {
-        if (head == nullptr) {
+        if (head == NULL) {
             cout << "List is empty. Cannot delete.\n";
             return;
         }
@@ -77,7 +77,7 @@ public:
         if (head->next == head) {
             // Only one node in the list
             delete head;
-            head = nullptr;
+            head = NULL;
             return;
         }
 
@@ -92,7 +92,7 @@ public:
     }
 
     void deleteAtTail() {
-        if (head == nullptr) {
+        if (head == NULL) {
             cout << "List is empty. Cannot delete.\n";
             return;
         }
@@ -100,7 +100,7 @@ public:
         if (head->next == head) {
             // Only one node in the list
             delete head;
-            head = nullptr;
+            head = NULL;
             return;
         }
 
@@ -114,14 +114,14 @@ public:
     }
 
     void reverse() {
-        if (head == nullptr || head->next == head) {
+        if (head == NULL || head->next == head) {
             // Empty list or single node
             return;
         }
 
-        Node<T>* prev = nullptr;
+        Node<T>* prev = NULL;
         Node<T>* current = head;
-        Node<T>* nextNode = nullptr;
+        Node<T>* nextNode = NULL;
         Node<T>* tail = head;  // Keep track of the tail
 
         do {
