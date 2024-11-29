@@ -127,7 +127,7 @@ int main() {
     dLL d;
     int choice, val;
 
-    do {
+    while (true) {
         cout << "1. Insert at Head\n";
         cout << "2. Insert at Tail\n";
         cout << "3. Delete at Head\n";
@@ -174,7 +174,7 @@ int main() {
         default:
             cout << "Invalid choice\n";
         }
-    } while (choice != 7);
+    } 
 
     return 0;
 }
